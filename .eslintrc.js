@@ -27,6 +27,7 @@ module.exports = {
   plugins: ['import', 'jsx-a11y', 'prefer-arrow', 'react', 'react-hooks', '@typescript-eslint'],
   root: true,
   rules: {
+    'import/prefer-default-export': 0,
     'react/no-array-index-key': 0, // 落ち着いたら消すこと
     'lines-between-class-members': [
       'error',
@@ -105,6 +106,24 @@ module.exports = {
       files: ['*.tsx'],
       rules: {
         'react/prop-types': 'off',
+        'import/order': [
+          'error',
+          {
+            groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+            pathGroups: [
+              {
+                pattern: '@alias/**',
+                group: 'parent',
+                position: 'before',
+              },
+            ],
+            alphabetize: {
+              order: 'asc',
+            },
+            'newlines-between': 'always',
+          },
+        ],
+        '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
       },
     },
   ],

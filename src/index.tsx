@@ -1,15 +1,8 @@
 import ReactDOM from 'react-dom/client';
 
-// レシピのデータ
-type RecipeType = {
-  name: string;
-  ingredients: Array<{
-    name: string;
-    amount: number;
-    measurement: string;
-  }>;
-  steps: string[];
-};
+import { Menu } from './components/menu';
+
+import type { RecipeType } from 'types';
 
 const data: Array<RecipeType> = [
   {
@@ -48,40 +41,4 @@ const data: Array<RecipeType> = [
   },
 ];
 
-type MenuProps = {
-  title: string;
-  recipes: Array<RecipeType>;
-};
-
-const Recipe = ({ name, ingredients, steps }: RecipeType): JSX.Element => (
-  <section id={name.toLocaleLowerCase().replace(/ /g, '-')}>
-    <ul className="ingredients">
-      {ingredients.map((ingredient, i) => (
-        <li key={i}>{ingredient.name}</li>
-      ))}
-    </ul>
-    <section className="instructions">
-      <h2>Cooking Instructions</h2>
-      {steps.map((step, i) => (
-        <p key={i}>{step}</p>
-      ))}
-    </section>
-  </section>
-);
-
-const Menu = ({ title, recipes }: MenuProps): JSX.Element => (
-  <article>
-    <header>
-      <h1>{title}</h1>
-    </header>
-    <div className="recipes">
-      {recipes.map((recipe, i) => (
-        <Recipe key={i} name={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps} />
-      ))}
-    </div>
-  </article>
-);
-
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Menu recipes={data} title="Delicious Recipes" />,
-);
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<Menu recipes={data} />);
