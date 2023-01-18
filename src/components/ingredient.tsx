@@ -1,4 +1,4 @@
-import type { IngredientType } from 'types';
+import type { IngredientType } from '~/src/types';
 
 type Props = IngredientType;
 

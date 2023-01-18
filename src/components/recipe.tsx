@@ -1,7 +1,7 @@
 import { IngredientList } from './ingredientList';
 import { Instructions } from './instructions';
 
-import type { RecipeType } from 'types';
+import type { RecipeType } from '~/src/types';
 
 type Props = RecipeType;
 

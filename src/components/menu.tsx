@@ -1,6 +1,6 @@
 import { Recipe } from './recipe';
 
-import type { RecipeType } from 'types';
+import type { RecipeType } from '~/src/types';
 
 type Props = {
   recipes: RecipeType[];
