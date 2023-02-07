@@ -14,7 +14,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
     'plugin:storybook/recommended',
-    'plugin:storybook/recommended',
+    'plugin:import/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
