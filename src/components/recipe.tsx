@@ -1,5 +1,5 @@
-import { IngredientList } from './ingredientList';
-import { Instructions } from './instructions';
+import { IngredientList } from './IngredientList';
+import { Instructions } from './Instructions';
 
 import type { RecipeType } from '~/src/types';
 
