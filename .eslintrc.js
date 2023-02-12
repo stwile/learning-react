@@ -13,7 +13,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
-    'plugin:storybook/recommended',
+    'plugin:import/recommended',
     'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -142,7 +142,6 @@ module.exports = {
         ],
       },
       files: ['*.stories.@(ts|tsx|js)'],
-      extends: ['plugin:storybook/recommended'],
     },
   ],
 };
