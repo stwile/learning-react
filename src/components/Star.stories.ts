@@ -5,11 +5,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Star> = {
   title: 'Star',
   component: Star,
-  argTypes: {
-    onSelect: {
-      action: 'clicked',
-    },
-  },
 };
 
 export default meta;

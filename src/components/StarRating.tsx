@@ -1,27 +1,19 @@
-import { useState } from 'react';
 import { Star } from './Star';
 
 type Props = {
-  style: {
-    backgroundColor: string;
-  };
   totalStars: number;
-  doubleClick: () => void;
+  selectedStars: number;
 };
 
-const StarRating = ({ style, totalStars = 5, doubleClick }: Props) => {
-  const [selectedStars, setSelectedStars] = useState<number>(0);
-
-  return (
-    <div style={{ padding: '5px', ...style }} onDoubleClick={() => doubleClick()}>
-      {[...Array(totalStars).keys()].slice(0).map((i) => (
-        <Star key={i} selected={selectedStars > i} onSelect={() => setSelectedStars(i + 1)} />
-      ))}
-      <p>
-        {selectedStars} of {totalStars} stars
-      </p>
-    </div>
-  );
-};
+const StarRating = ({ totalStars = 5, selectedStars = 0 }: Props) => (
+  <>
+    {[...Array(totalStars).keys()].slice(0).map((i) => (
+      <Star key={i} selected={selectedStars > i} />
+    ))}
+    <p>
+      {selectedStars} of {totalStars} stars
+    </p>
+  </>
+);
 
 export { StarRating };

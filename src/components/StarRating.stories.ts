@@ -5,11 +5,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof StarRating> = {
   title: 'StarRating',
   component: StarRating,
-  argTypes: {
-    doubleClick: {
-      action: 'double clicked',
-    },
-  },
 };
 
 export default meta;
