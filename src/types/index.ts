@@ -11,7 +11,7 @@ type RecipeType = {
 };
 
 type ColorType = {
-  id?: string;
+  id: string;
   title: string;
   color: string;
   rating: number;
