@@ -16,5 +16,6 @@ export const Default: StoryObj<typeof StarRating> = {
 export const Selected3: StoryObj<typeof StarRating> = {
   args: {
     totalStars: 3,
+    selectedStars: 2,
   },
 };

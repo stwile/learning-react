@@ -1,7 +1,7 @@
 import { Star } from './Star';
 
 type Props = {
-  totalStars: number;
+  totalStars?: number;
   selectedStars: number;
 };
 
