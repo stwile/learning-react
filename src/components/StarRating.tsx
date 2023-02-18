@@ -6,12 +6,12 @@ type Props = {
 };
 
 const StarRating = ({ totalStars = 5 }: Props) => {
-  const [selectedStars] = useState(3);
+  const [selectedStars, setSelectedStars] = useState<number>(0);
 
   return (
     <>
       {[...Array(totalStars).keys()].slice(0).map((i) => (
-        <Star key={i} selected={selectedStars > i} />
+        <Star key={i} selected={selectedStars > i} onSelect={() => setSelectedStars(i + 1)} />
       ))}
       <p>
         {selectedStars} of {totalStars} stars
