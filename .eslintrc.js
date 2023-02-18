@@ -26,7 +26,15 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
-  plugins: ['import', 'jsx-a11y', 'prefer-arrow', 'react', 'react-hooks', '@typescript-eslint'],
+  plugins: [
+    'import',
+    'jsx-a11y',
+    'prefer-arrow',
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'storybook',
+  ],
   root: true,
   rules: {
     'import/no-extraneous-dependencies': [
@@ -40,13 +48,6 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react/no-array-index-key': 0,
     // 落ち着いたら消すこと
-    'lines-between-class-members': [
-      'error',
-      'always',
-      {
-        exceptAfterSingleLine: true,
-      },
-    ],
     'no-void': [
       'error',
       {
@@ -111,37 +112,37 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': 'off',
-  },
-  overrides: [
-    {
-      files: ['*.tsx'],
-      rules: {
-        'react/prop-types': 'off',
-        'import/order': [
-          'error',
+    'react/prop-types': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+        pathGroups: [
           {
-            groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
-            pathGroups: [
-              {
-                pattern: '@alias/**',
-                group: 'parent',
-                position: 'before',
-              },
-            ],
-            alphabetize: {
-              order: 'asc',
-            },
-            'newlines-between': 'always',
+            pattern: '@alias/**',
+            group: 'parent',
+            position: 'before',
           },
         ],
-        '@typescript-eslint/consistent-type-imports': [
-          'error',
-          {
-            prefer: 'type-imports',
-          },
-        ],
+        alphabetize: {
+          order: 'asc',
+        },
+        'newlines-between': 'always',
       },
-      files: ['*.stories.@(ts|tsx|js)'],
-    },
-  ],
+    ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+      },
+    ],
+  },
 };

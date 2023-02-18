@@ -67,7 +67,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write --loglevel=error",
-      "eslint --fix --quiet"
+      "yarn lint"
     ],
     "{public,src}/**/*.{html,gql,graphql,json}": [
       "prettier --write --loglevel=error"

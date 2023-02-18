@@ -1,11 +1,10 @@
-import { StarRating } from './components/StarRating';
+import { useState } from 'react';
 
-export const App = () => (
-  <StarRating
-    style={{ backgroundColor: 'lightblue' }}
-    totalStars={5}
-    doubleClick={() => {
-      alert('double click');
-    }}
-  />
-);
+import { ColorList } from './components/ColorList';
+import colorData from './data/color-data.json';
+
+export const App = () => {
+  const [colors] = useState(colorData);
+
+  return <ColorList colors={colors} />;
+};

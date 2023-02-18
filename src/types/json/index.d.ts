@@ -1,4 +1,4 @@
-import { RecipeType, ColorType } from '..';
+import type { RecipeType, ColorType } from '..';
 
 declare module '*/recipe.json' {
   const value: RecipeType[];
