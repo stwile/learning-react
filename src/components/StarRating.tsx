@@ -6,13 +6,14 @@ type Props = {
     backgroundColor: string;
   };
   totalStars: number;
+  doubleClick: () => void;
 };
 
-const StarRating = ({ style, totalStars = 5 }: Props) => {
+const StarRating = ({ style, totalStars = 5, doubleClick }: Props) => {
   const [selectedStars, setSelectedStars] = useState<number>(0);
 
   return (
-    <div style={{ padding: '5px', ...style }}>
+    <div style={{ padding: '5px', ...style }} onDoubleClick={() => doubleClick()}>
       {[...Array(totalStars).keys()].slice(0).map((i) => (
         <Star key={i} selected={selectedStars > i} onSelect={() => setSelectedStars(i + 1)} />
       ))}
