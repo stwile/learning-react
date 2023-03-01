@@ -20,14 +20,15 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
-      "node"
+      "node",
+      "vitest/globals"
     ],
     "baseUrl": ".",
     "paths": {
       "~/src/*": [
         "./src/*"
       ],
-    }
+    },
   },
   "include": [
     "src"
