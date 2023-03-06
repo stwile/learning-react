@@ -1,17 +1,9 @@
+import { useColors } from '../providers/ColorProvider';
+
 import { Color } from './Color';
 
-import type { ColorType } from '~/src/types';
-
-type OnRemoveColor = (id: string) => void;
-type OnRateColor = (id: string, rating: number) => void;
-
-type Props = {
-  colors?: ColorType[];
-  onRemoveColor: OnRemoveColor;
-  onRateColor: OnRateColor;
-};
-
-const ColorList = ({ colors = [], onRemoveColor, onRateColor }: Props) => {
+const ColorList = () => {
+  const { colors } = useColors();
   if (!colors.length) return <div>No Colors Listed.</div>;
 
   return (
@@ -22,8 +14,6 @@ const ColorList = ({ colors = [], onRemoveColor, onRateColor }: Props) => {
           color={color.color}
           title={color.title}
           rating={color.rating}
-          onRemove={onRemoveColor}
-          onRate={onRateColor}
           id={color.id}
         />
       ))}
@@ -32,4 +22,3 @@ const ColorList = ({ colors = [], onRemoveColor, onRateColor }: Props) => {
 };
 
 export { ColorList };
-export type { OnRateColor, OnRemoveColor };

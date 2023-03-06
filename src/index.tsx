@@ -1,8 +1,11 @@
-import ReactDOM from 'react-dom/client';
+import { render } from 'react-dom';
 
-import { Menu } from './components/Menu';
-import data from './data/recipe.json';
+import { App } from './App';
+import { ColorProvider } from './providers/ColorProvider';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Menu recipes={data} />,
+render(
+  <ColorProvider>
+    <App />
+  </ColorProvider>,
+  document.getElementById('root'),
 );
