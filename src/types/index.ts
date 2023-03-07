@@ -10,4 +10,11 @@ type RecipeType = {
   steps: string[];
 };
 
-export type { RecipeType, IngredientType };
+type ColorType = {
+  id: string;
+  title: string;
+  color: string;
+  rating: number;
+};
+
+export type { RecipeType, IngredientType, ColorType };
