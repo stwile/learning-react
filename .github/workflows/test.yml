@@ -30,4 +30,4 @@ jobs:
       run: yarn test
     - name: 'Report Coverage'
       if: always()
-      uses:  davelosert/vitest-coverage-report-action@v1
+      uses:  davelosert/vitest-coverage-report-action@v1 --vite-config-path="./vitest.config.ts"
