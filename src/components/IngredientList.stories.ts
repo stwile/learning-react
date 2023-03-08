@@ -2,14 +2,16 @@ import { IngredientList } from './IngredientList';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof IngredientList> = {
+const meta = {
   title: 'Ingredient List',
   component: IngredientList,
-};
+} satisfies Meta<typeof IngredientList>;
 
 export default meta;
 
-export const Default: StoryObj<typeof IngredientList> = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     list: [
       {
@@ -26,7 +28,7 @@ export const Default: StoryObj<typeof IngredientList> = {
   },
 };
 
-export const Empty: StoryObj<typeof IngredientList> = {
+export const Empty: Story = {
   args: {
     list: [],
   },

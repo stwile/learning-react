@@ -2,10 +2,12 @@ import { App } from './App';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof App> = {
+const meta = {
   title: 'App',
   component: App,
-};
+} satisfies Meta<typeof App>;
 export default meta;
 
-export const Default: StoryObj<typeof App> = {};
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};

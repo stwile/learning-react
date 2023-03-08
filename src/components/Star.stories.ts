@@ -2,18 +2,21 @@ import { Star } from './Star';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Star> = {
+const meta = {
   title: 'Star',
   component: Star,
-};
-
+} satisfies Meta<typeof Star>;
 export default meta;
 
-export const Default: StoryObj<typeof Star> = {
-  args: {},
+type Story = StoryObj<typeof meta>;
+
+export const Unselected: Story = {
+  args: {
+    selected: false,
+  },
 };
 
-export const Selected: StoryObj<typeof Star> = {
+export const Selected: Story = {
   args: {
     selected: true,
   },
