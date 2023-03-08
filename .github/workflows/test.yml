@@ -1,11 +1,11 @@
 name: test
-on: 
+on:
   pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: read
       pull-requests: write
@@ -21,11 +21,11 @@ jobs:
       with:
         node-version: ${{ steps.get-node-version.outputs.nodeVersion }}
         cache: yarn
-      
+
     - name: 'Install Deps'
-      run: npm install
+      run: yarn
     - name: 'Test'
-      run: npx vitest --coverage
+      run: yarn test
     - name: 'Report Coverage'
       if: always()
       uses:  davelosert/vitest-coverage-report-action@v1
