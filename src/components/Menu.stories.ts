@@ -4,13 +4,15 @@ import { Menu } from './Menu';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Menu> = {
+const meta = {
   title: 'Menu',
   component: Menu,
-};
+} satisfies Meta<typeof Menu>;
 export default meta;
 
-export const Default: StoryObj<typeof Menu> = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     recipes: data,
   },

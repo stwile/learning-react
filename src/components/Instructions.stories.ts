@@ -2,13 +2,15 @@ import { Instructions } from './Instructions';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Instructions> = {
+const meta = {
   title: 'Instructions',
   component: Instructions,
-};
+} satisfies Meta<typeof Instructions>;
 export default meta;
 
-export const Default: StoryObj<typeof Instructions> = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'hoge',
     steps: ['fuga', 'boo'],
