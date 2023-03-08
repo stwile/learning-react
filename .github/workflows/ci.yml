@@ -1,9 +1,9 @@
-name: lint
+name: ci
 
 on: pull_request
 
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,3 +22,11 @@ jobs:
         run: |
           yarn
           yarn lint
+
+      - name: test
+        run: yarn coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/coverage-final.json
