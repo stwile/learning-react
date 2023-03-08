@@ -1,0 +1,31 @@
+name: test
+on: 
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Get node version from volta
+      id: get-node-version
+      uses: keita-hino/get-node-version-from-volta@main
+
+    - name: Set Node version
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ steps.get-node-version.outputs.nodeVersion }}
+        cache: yarn
+      
+    - name: 'Install Deps'
+      run: npm install
+    - name: 'Test'
+      run: npx vitest --coverage
+    - name: 'Report Coverage'
+      if: always()
+      uses:  davelosert/vitest-coverage-report-action@v1
