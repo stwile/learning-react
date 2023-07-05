@@ -13,7 +13,12 @@ const Menu = ({ recipes }: Props) => (
     </header>
     <div className="recipes">
       {recipes.map((recipe, i) => (
-        <Recipe key={i} name={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps} />
+        <Recipe
+          key={i}
+          name={recipe.name}
+          ingredients={recipe.ingredients}
+          steps={recipe.steps}
+        />
       ))}
     </div>
   </article>
