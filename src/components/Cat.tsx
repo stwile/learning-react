@@ -1,11 +1,16 @@
 type Props = {
   name: string;
+  meow: (name: string) => void;
 };
 
-const Cat = ({ name }: Props) => {
+const Cat = ({ name, meow }: Props) => {
   console.log(`rendering ${name}`);
 
-  return <p>{name}</p>;
+  return (
+    <button type="button" onClick={() => meow(name)}>
+      {name}
+    </button>
+  );
 };
 
 export { Cat };
