@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { Cat } from './Cat';
 
 const Cats = () => {
   const [cats, setCats] = useState<string[]>(['Biscuit', 'Jungle', 'Outlow']);
 
+  const PureCat = memo(Cat);
+
   return (
     <>
       {cats.map((name, i) => (
-        <Cat key={i} name={name} />
+        <PureCat key={i} name={name} />
       ))}
       <button
         type="button"
