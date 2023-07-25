@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 import { ColorProvider, useColors } from './ColorProvider';
 
@@ -23,7 +23,7 @@ describe('useColorsのテスト', () => {
   };
 
   it('初期値を検証', () => {
-    const wrapper = ({ children }: { children: JSX.Element[] }) => (
+    const wrapper = ({ children }: { children: JSX.Element }) => (
       <ColorProvider>{children}</ColorProvider>
     );
     const { result } = renderHook(() => useColors(), {
@@ -52,7 +52,7 @@ describe('useColorsのテスト', () => {
   });
 
   it('addColor', () => {
-    const wrapper = ({ children }: { children: JSX.Element[] }) => (
+    const wrapper = ({ children }: { children: JSX.Element }) => (
       <ColorProvider>{children}</ColorProvider>
     );
     const { result } = renderHook(() => useColors(), {
@@ -79,7 +79,7 @@ describe('useColorsのテスト', () => {
 
   describe('rateColor', () => {
     it('IDが既存に存在する場合rateだけが変更される', () => {
-      const wrapper = ({ children }: { children: JSX.Element[] }) => (
+      const wrapper = ({ children }: { children: JSX.Element }) => (
         <ColorProvider>{children}</ColorProvider>
       );
       const { result } = renderHook(() => useColors(), {
@@ -111,7 +111,7 @@ describe('useColorsのテスト', () => {
     });
 
     it('IDが既存に存在しない場合何も変更されない', () => {
-      const wrapper = ({ children }: { children: JSX.Element[] }) => (
+      const wrapper = ({ children }: { children: JSX.Element }) => (
         <ColorProvider>{children}</ColorProvider>
       );
       const { result } = renderHook(() => useColors(), {
@@ -135,7 +135,7 @@ describe('useColorsのテスト', () => {
 
   describe('removeColor', () => {
     it('idが一致する場合、除外されるべき', () => {
-      const wrapper = ({ children }: { children: JSX.Element[] }) => (
+      const wrapper = ({ children }: { children: JSX.Element }) => (
         <ColorProvider>{children}</ColorProvider>
       );
       const { result } = renderHook(() => useColors(), {
@@ -157,7 +157,7 @@ describe('useColorsのテスト', () => {
   });
 
   it('IDが既存に存在しない場合何も変更されない', () => {
-    const wrapper = ({ children }: { children: JSX.Element[] }) => (
+    const wrapper = ({ children }: { children: JSX.Element }) => (
       <ColorProvider>{children}</ColorProvider>
     );
     const { result } = renderHook(() => useColors(), {
