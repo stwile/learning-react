@@ -76,7 +76,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write --loglevel=error",
-      "yarn lint"
+      "npm run lint"
     ],
     "{public,src}/**/*.{html,gql,graphql,json}": [
       "prettier --write --loglevel=error"
@@ -84,6 +84,6 @@
   },
   "volta": {
     "node": "20.4.0",
-    "yarn": "1.22.19"
+    "npm": "9.8.1"
   }
 }
