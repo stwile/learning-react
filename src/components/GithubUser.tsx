@@ -11,51 +11,34 @@ type Response = {
   location: string;
 };
 
-// ローカルストレージからデータを読み込む
-const loadJSON = <T,>(key: string): T | null => {
-  if (!key) return null;
-
-  const json = localStorage.getItem(key);
-  if (json === null) return null;
-
-  return JSON.parse(json) as T;
-};
-
-// ローカルストレージにデータを書き込む
-const saveJSON = <T,>(key: string, data: T): void =>
-  localStorage.setItem(key, JSON.stringify(data));
-
 const GithubUser = ({ login }: Props) => {
-  const [data, setData] = useState(loadJSON<Response>(`user:${login}`));
-
-  useEffect(() => {
-    if (!login) return;
-    if (data === null) return;
-    if (data.login === login) return;
-    const { name, avatar_url: avatarUrl, location } = data;
-    saveJSON<Response>(`user:${login}`, {
-      name,
-      login,
-      avatar_url: avatarUrl,
-      location,
-    });
-  }, [data]);
+  const [data, setData] = useState<Response>();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (!login) return;
     fetch(`https://api.github.com/users/${login}`)
       .then((response) => response.json())
       .then(setData)
-      .catch(console.error);
+      .then(() => setLoading(false))
+      .catch(setError);
   }, [login]);
 
-  if (data) {
-    console.log(data);
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+  if (loading) return <h1>loading...</h1>;
+  if (!data) return null;
 
-    return <pre>{JSON.stringify(data, null, 2)}</pre>;
-  }
-
-  return null;
+  return (
+    <div className="githubUser">
+      <img src={data.avatar_url} alt={data.login} style={{ width: 200 }} />
+      <div>
+        <h1>{data.login}</h1>
+        {data.name && <p>{data.name}</p>}
+        {data.location && <p>{data.location}</p>}
+      </div>
+    </div>
+  );
 };
 
 export { GithubUser };
