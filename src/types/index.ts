@@ -27,4 +27,10 @@ type UserType = {
   admin: boolean;
 };
 
-export type { RecipeType, IngredientType, ColorType, UserType };
+type PersonalType = {
+  name: string;
+  email: string;
+  avatar: string;
+};
+
+export type { RecipeType, IngredientType, ColorType, UserType, PersonalType };
