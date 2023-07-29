@@ -33,4 +33,18 @@ type PersonalType = {
   avatar: string;
 };
 
-export type { RecipeType, IngredientType, ColorType, UserType, PersonalType };
+type UserDetailType = {
+  name: string;
+  login: string;
+  avatar_url: string;
+  location: string;
+};
+
+export type {
+  RecipeType,
+  IngredientType,
+  ColorType,
+  UserType,
+  PersonalType,
+  UserDetailType,
+};
