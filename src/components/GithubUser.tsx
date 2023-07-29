@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 type Props = {
   login: string;
@@ -12,18 +12,9 @@ type Response = {
 };
 
 const GithubUser = ({ login }: Props) => {
-  const [data, setData] = useState<Response>();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!login) return;
-    fetch(`https://api.github.com/users/${login}`)
-      .then((response) => response.json())
-      .then(setData)
-      .then(() => setLoading(false))
-      .catch(setError);
-  }, [login]);
+  const { loading, data, error } = useFetch<Response>(
+    `https://api.github.com/users/${login}`,
+  );
 
   if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
   if (loading) return <h1>loading...</h1>;
