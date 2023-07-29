@@ -1,4 +1,4 @@
-import type { UserDetailType } from '../types';
+import type { UserDetailType } from '../../types';
 import type { FC } from 'react';
 
 type Props = UserDetailType;

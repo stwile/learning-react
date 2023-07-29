@@ -1,4 +1,4 @@
-import { GithubUser } from './GithubUser';
+import { GithubUser } from '.';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
