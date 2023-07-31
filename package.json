@@ -15,7 +15,7 @@
     "prepare": "simple-git-hooks > /dev/null",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
-    "test": "vitest",
+    "test": "vitest run",
     "test:dev": "vitest dev",
     "coverage": "vitest run --coverage"
   },
