@@ -17,4 +17,14 @@ type ColorType = {
   rating: number;
 };
 
-export type { RecipeType, IngredientType, ColorType };
+type UserType = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  city: string;
+  state: string;
+  email: string;
+  admin: boolean;
+};
+
+export type { RecipeType, IngredientType, ColorType, UserType };
