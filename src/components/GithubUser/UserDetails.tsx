@@ -1,3 +1,5 @@
+import { UserRepositories } from './Repositories/UserRepositories';
+
 import type { UserDetailType } from '../../types';
 import type { FC } from 'react';
 
@@ -16,6 +18,10 @@ const UserDetails: FC<Props> = ({
       {name && <p>{name}</p>}
       {location && <p>{location}</p>}
     </div>
+    <UserRepositories
+      login={login}
+      onSelect={(repoName: string) => console.log(`${repoName} selected`)}
+    />
   </div>
 );
 
