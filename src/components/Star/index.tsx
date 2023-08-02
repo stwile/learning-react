@@ -1,12 +1,14 @@
 import { FaStar } from 'react-icons/fa';
 
 type Props = {
-  selected: boolean;
-  onSelect: () => void;
+  selected?: boolean;
 };
 
-const Star = ({ selected = false, onSelect }: Props) => (
-  <FaStar color={selected ? 'red' : 'grey'} onClick={onSelect} />
+const Star = ({ selected = false }: Props) => (
+  <>
+    <h1>Great Star</h1>
+    <FaStar id="star" color={selected ? 'red' : 'grey'} />
+  </>
 );
 
 export { Star };
