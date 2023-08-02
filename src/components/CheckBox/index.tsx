@@ -1,13 +1,23 @@
 import { useReducer } from 'react';
 
 const CheckBox = () => {
-  const [checked, toggle] = useReducer((checked1) => !checked1, false);
+  const [checked, setChecked] = useReducer(
+    (checked1: boolean) => !checked1,
+    false,
+  );
+  const labelName = 'checkbox';
 
   return (
-    <>
-      <input type="checkbox" value={Number(checked)} onChange={toggle} />
+    <label htmlFor={labelName}>
       {checked ? 'checked' : 'not checked'}
-    </>
+      <input
+        name={labelName}
+        type="checkbox"
+        value={Number(checked)}
+        onChange={setChecked}
+        aria-checked={checked}
+      />
+    </label>
   );
 };
 
