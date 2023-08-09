@@ -5,6 +5,7 @@ import { Contact } from './Contact';
 import { Events } from './Events';
 import { Home } from './Home';
 import { Products } from './Products';
+import { Whoops404 } from './Whoops404';
 
 const App = () => (
   <div>
@@ -14,6 +15,7 @@ const App = () => (
       <Route path="/events" element={<Events />} />
       <Route path="/products" element={<Products />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<Whoops404 />} />a
     </Routes>
   </div>
 );
