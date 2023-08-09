@@ -1,4 +1,4 @@
-import { Star } from './Star';
+import { Star } from '.';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
