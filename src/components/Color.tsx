@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useColors } from '../providers/ColorProvider';
 
 import { StarRating } from './StarRating';
@@ -8,9 +10,11 @@ type Props = ColorType;
 
 const Color = ({ id, title, color, rating }: Props) => {
   const { rateColor, removeColor } = useColors();
+  const navigate = useNavigate();
 
   return (
-    <section>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <section className="color" onClick={() => navigate(`/${id}`)}>
       <h1>{title}</h1>
       <button type="button" onClick={() => removeColor(id)}>
         X
